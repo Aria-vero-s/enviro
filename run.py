@@ -24,4 +24,10 @@ g_list = [
 for q in g_list[0:4]:
     answer = input(f"{q[1]}:\n - {q[2]} \n - {q[3]} \n - {q[4]} \n - {q[5]} \nplease type your answer here: ")
 
-print("Thank you for completing the survey.")
+    if answer == "car":
+        pass
+    else:
+        raise ValueError(
+        f"You must choose one answer from the list above. You provided {(answer)}"
+        )
+
