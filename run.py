@@ -1,3 +1,4 @@
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -22,12 +23,11 @@ g_list = [
 ]
 
 for q in g_list[0:4]:
-    answer = input(f"{q[1]}:\n - {q[2]} \n - {q[3]} \n - {q[4]} \n - {q[5]} \nplease type your answer here: ")
+    answer = input(f"{q[1]}:\n - {q[2]} \n - {q[3]} \n - {q[4]} \n - {q[5]} \nplease type your answer here: \n")
 
-    if answer == "car":
+    if answer == "car" or answer == "bicycle":
         pass
     else:
         raise ValueError(
         f"You must choose one answer from the list above. You provided {(answer)}"
         )
-
