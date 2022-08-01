@@ -25,7 +25,7 @@ g_list = [
 for q in g_list[0:4]:
     answer = input(f"{q[1]}:\n - {q[2]} \n - {q[3]} \n - {q[4]} \n - {q[5]} \nplease type your answer here: \n")
 
-    if answer == "car" or answer == "bicycle":
+    if answer == "car" or answer == "bicycle" or answer == "public transport" or answer == "other" or answer == "internet" or answer == "radio/tv" or answer == "newspaper" or answer == "air pollution" or answer == "water pollution" or answer == "soil pollution" or answer == "under 18" or answer == "19-30" or answer == "31-49" or answer == "50+":
         pass
     else:
         raise ValueError(
