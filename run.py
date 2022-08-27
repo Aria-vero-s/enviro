@@ -29,34 +29,28 @@ Run a while loop to collect a valid string of answer from the user via the termi
 The loop will repeatedly request an answer, until it is valid.
 """
 
-
 # save list of answers
 answers_list = []
-
 
 for q in q_list[0:5]:
     answer = input(f"{q[1]}:\n - {q[2]} \n - {q[3]} \n - {q[4]} \n - {q[5]} \nplease type your answer here: \n")
     print("")
     while True:
         if answer == "car" or answer == "bicycle" or answer == "public transport" or answer == "other" or answer == "internet" or answer == "radio/tv" or answer == "newspaper" or answer == "air pollution" or answer == "water pollution" or answer == "soil pollution" or answer == "under 18" or answer == "19-30" or answer == "31-49" or answer == "50+":
-            break
+            answers_list.append(answer)
             print("\n")
+            break
         else: 
             print(f"You must choose one answer from the list above. You provided:\n" f"{(answer)}\n")
             answer = input("Please type your answer here: \n")
             print("")
-
-    # add answer to a list
-    answers_list.append(answer)
-
+            answers_list.append(answer)
 
 """
 Add all answers from the answers list to the google worksheet
 """
 
-# loop over answers_list
-for answer in answers_list:
-    # the worksheet name
-    worksheet_to_update = SHEET.worksheet('Enviro')
-    # add to the worksheet
-    worksheet_to_update.append_row(answer)
+
+worksheet_to_update = SHEET.worksheet('count')
+# add to the worksheet
+worksheet_to_update.append_row(answers_list)
