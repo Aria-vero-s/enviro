@@ -45,6 +45,7 @@ for q in q_list[0:5]:
             print("")
             answers_list.append(answer)
 
+print('Thank you for completing the survey')
 """
 Add all answers from the answers list to the google worksheet
 """
