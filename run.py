@@ -38,7 +38,6 @@ for q in q_list[0:5]:
     while True:
         if answer == "car" or answer == "bicycle" or answer == "public transport" or answer == "other" or answer == "internet" or answer == "radio/tv" or answer == "newspaper" or answer == "air pollution" or answer == "water pollution" or answer == "soil pollution" or answer == "under 18" or answer == "19-30" or answer == "31-49" or answer == "50+":
             answers_list.append(answer)
-            print("\n")
             break
         else: 
             print(f"You must choose one answer from the list above. You provided:\n" f"{(answer)}\n")
