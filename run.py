@@ -57,6 +57,6 @@ Add all answers from the answers list to the google worksheet
 # loop over answers_list
 for answer in answers_list:
     # the worksheet name
-    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update = SHEET.worksheet('Enviro')
     # add to the worksheet
     worksheet_to_update.append_row(answer)
