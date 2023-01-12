@@ -1,37 +1,84 @@
-Enviro
+# Enviro
 
 Enviro is a Python terminal survey, which runs the Code Institute mock terminal on Heroku.
 
-Users will answer four personal questions on the topic of climate change. The answers are then automatically compiled in a separate google sheet document.
+The user will answer four questions on the topic of climate change. After completion, the answers are automatically compiled in a separate google sheet document.
 
-Google sheet:
-https://docs.google.com/spreadsheets/d/1Rcz8dzrTXvPHjxwoMHBXs2aZOEnhtcarwN_9A1e86hA/edit?usp=sharing
+Here is the live version of my project:
 
-Heroku app:
 https://enviro-heroku.herokuapp.com/
 
-## Reminders
+Here is the google sheet:
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+https://docs.google.com/spreadsheets/d/1Rcz8dzrTXvPHjxwoMHBXs2aZOEnhtcarwN_9A1e86hA/edit?usp=sharing
 
-## Creating the Heroku app
+<img src="images/multi-device-mockup.png">
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. `heroku/python`
-2. `heroku/nodejs`
+# How to complete the survey
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+After clicking on 'run program', the user is prompted with the following statement: 'Please answer the following questions by choosing one of the provided answers.' The program then shows a question with a list of 4 answers to choose from. The user simply needs to type the answer from the list and press enter and repeat for all 4 questions.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
+<img src="images/question1.png" width="600">
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+After completing the survey, the answers are sent to the linked google sheet where they are compiled automatically for the survey analyst. In the google sheet, the survey analyst can examine the count for each answer and see which ones are the most frequent.
 
------
-Happy coding!
+
+<img src="images/googlesheet.png" width="600">
+
+
+# Features
+
+## Existing features
+
+- The questions are displayed one at a time in order
+- The multiple answers are grouped under their respective questions
+- Accepts user inputs
+- Input validation and error-checking
+    - The answer must be one of the multiple answers provided
+    - The answer must be entered in letters only
+    - The survey will return the user's wrong input
+- Data sent to linked google sheet
+
+## Future features
+
+- Show survey results to user after completion
+
+# Data Model
+
+I decided to use a python list to hold the questions and multiple choice answers. The survey uses a for loop in order to collect the answers and verify if they are entered correctly by the user. The answers are sent to the google sheet using the SHEET variable and google sheet API.
+
+# Testing
+
+I have manually tested this project by doing the following:
+- Given invalid inputs: numbers and typos when specific strings are expected.
+- Tested in my local terminal and the Code Institute Heroku terminal
+
+## Bugs
+
+### Solved bugs
+
+- The wrong answers (or user typos) were sent to the google sheet and thus interfered with the exactitude of the answer compilation. The problem was the code 'answers_list.append(answer)' in the else statement. The fix was to simply remove that line of code.
+
+## Bugs remaining
+
+- No bugs remaining.
+
+# Deployment
+
+This project was deployed using Code Institute's mock terminal heroku.
+
+- steps for deployment:
+    - Fork or clone this repository
+    - Create a new heroku app
+    - Set the buildpacks to `Python` and `NodeJS` in that order
+    - Link the heroku app to the repository
+    - Click on <strong>Deploy</strong>
+
+
+# Credits
+
+Code Institute for the deployment terminal
+https://techsini.com/multi-mockup/index.php for the README.md multi-device mockup image.
