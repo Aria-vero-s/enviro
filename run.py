@@ -43,7 +43,6 @@ for q in q_list[0:5]:
             print(f"You must choose one answer from the list above. You provided:\n" f"{(answer)}\n")
             answer = input("Please type your answer here: \n")
             print("")
-            answers_list.append(answer)
 
 print('Thank you for completing the survey')
 """
