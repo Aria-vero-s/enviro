@@ -57,18 +57,25 @@ worksheet_to_update = SHEET.worksheet('count')
 worksheet_to_update.append_row(answers_list)
 
 x = SHEET.worksheet('count').col_values(1)
-if len(x)-8 > 1:
-    print('These were the most popular answers out of the', len(x)-8, 'participants: \n')
-else:
-    print('(You are the first participant! Please come back later to see more results.)')
 
+# if len(x)-8 > 1:
+print('These were the most popular answers out of the', len(x)-8, 'participants: \n')
+# else:
+#    print('(You are the first participant! Please come back later to see more results.)')
 
 # I used the https://stackoverflow.com/questions/3594514/how-to-find-most-common-elements-of-a-list to help me build the next section.
-
 
 q_1_answers = (SHEET.worksheet('count').col_values(5))
 col_1 = (SHEET.worksheet('count').col_values(1))
 most_common_words1 = [col_1 for col_1, word_count in Counter(col_1).most_common(1)]
+
+
+# for item in q_1_answers:
+#     if item == '':
+#         q_1_answers.remove(item)
+#         new_q_1_answers = int(item(q_1_answers))
+# print(new_q_1_answers)
+
 
 if most_common_words1 == ['a']:
     print(max(q_1_answers), 'participants answered "car" for question 1')
