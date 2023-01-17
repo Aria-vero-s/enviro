@@ -2,6 +2,8 @@ import os
 import gspread
 from google.oauth2.service_account import Credentials
 
+gc = gspread.service_account()
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -15,6 +17,7 @@ SHEET = GSPREAD_CLIENT.open('Enviro')
 
 """
 Survey starts here. The questions are in a group list.
+I used https://realpython.com/python-quiz-application/ to help me understand how to build this survey.
 """
 print("\nPlease answer the following questions by choosing one of the provided answers.\n")
 q_list = [

@@ -53,8 +53,9 @@ I decided to use a python list to hold the questions and multiple choice answers
 # Testing
 
 I have manually tested this project by doing the following:
-- Given invalid inputs: numbers and typos when specific strings are expected.
+- Typed invalid inputs (i.e., numbers and typos) when specific strings are expected
 - Tested in my local terminal and the Code Institute Heroku terminal
+- No errors were found when passing through the official https://pep8ci.herokuapp.com/
 
 ## Bugs
 
@@ -81,4 +82,7 @@ This project was deployed using Code Institute's mock terminal heroku.
 # Credits
 
 Code Institute for the deployment terminal
-https://techsini.com/multi-mockup/index.php for the README.md multi-device mockup image.
+
+https://techsini.com/multi-mockup/index.php for the README.md multi-device mockup image
+
+https://realpython.com/python-quiz-application/ for the tutorial
