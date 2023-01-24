@@ -26,7 +26,7 @@ After clicking on 'run program', the user is prompted with the following stateme
 After completing the survey, the answers are sent to the linked google sheet where they are compiled automatically for the survey analyst. In the google sheet, the survey analyst can examine the count for each answer and see which ones are the most frequent.
 
 
-<img src="images/googlesheet.png" width="600">
+<img src="images/googlesheet-green.png" width="600">
 
 
 # Features
@@ -40,11 +40,16 @@ After completing the survey, the answers are sent to the linked google sheet whe
     - The answer must be one of the multiple answers provided
     - The answer must be entered in letters only
     - The survey will return the user's wrong input
+    <img src="images/wrong-input.png" width="400">
 - Data sent to linked google sheet
+- The quantity of participants is displayed after completion of the survey
+- The most popular answers are displayed at the end
+
+<img src="images/popular-answers.png" width="600">
 
 ## Future features
 
-- Show survey results to user after completion
+- Ability for the participant to go back and change their answer
 
 # Data Model
 
