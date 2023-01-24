@@ -1,8 +1,7 @@
-import os
+""" gspread is a Python API for Google Sheets. """
 import gspread
 from google.oauth2.service_account import Credentials
 from collections import Counter
-
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -69,58 +68,74 @@ q_1_answers = (SHEET.worksheet('count').col_values(5))
 col_1 = (SHEET.worksheet('count').col_values(1))
 most_common_words1 = [col_1 for col_1, word_count in Counter(col_1).most_common(1)]
 
-
-# for item in q_1_answers:
-#     if item == '':
-#         q_1_answers.remove(item)
-#         new_q_1_answers = int(item(q_1_answers))
-# print(new_q_1_answers)
-
+new_q_1_answers = []
+for item in q_1_answers:
+    if item != '':
+        item = int(item)
+        new_q_1_answers.append(item)
 
 if most_common_words1 == ['a']:
-    print(max(q_1_answers), 'participants answered "car" for question 1')
+    print(max(new_q_1_answers), 'participants answered "car" for question 1')
 elif most_common_words1 == ['b']:
-    print(max(q_1_answers), 'participants answered "bicycle" for question 1')
+    print(max(new_q_1_answers), 'participants answered "bicycle" for question 1')
 elif most_common_words1 == ['c']:
-    print(max(q_1_answers), 'participants answered "public transport" for question 1')
+    print(max(new_q_1_answers), 'participants answered "public transport" for question 1')
 elif most_common_words1 == ['d']:
-    print(max(q_1_answers), 'participants answered "other" for question 1')
+    print(max(new_q_1_answers), 'participants answered "other" for question 1')
 
 q_2_answers = (SHEET.worksheet('count').col_values(6))
 col_2 = Counter(SHEET.worksheet('count').col_values(2))
 most_common_words2 = [col_2 for col_2, word_count in Counter(col_2).most_common(1)]
 
+new_q_2_answers = []
+for item in q_2_answers:
+    if item != '':
+        item = int(item)
+        new_q_2_answers.append(item)
+
 if most_common_words2 == ['a']:
-    print(max(q_2_answers), 'participants answered "internet" for question 2')
+    print(max(new_q_2_answers), 'participants answered "internet" for question 2')
 elif most_common_words2 == ['b']:
-    print(max(q_2_answers), 'participants answered "radio/tv" for question 2')
+    print(max(new_q_2_answers), 'participants answered "radio/tv" for question 2')
 elif most_common_words2 == ['c']:
-    print(max(q_2_answers), 'participants answered "newspaper" for question 2')
+    print(max(new_q_2_answers), 'participants answered "newspaper" for question 2')
 elif most_common_words2 == ['d']:
-    print(max(q_2_answers), 'participants answered "other" for question 2')
+    print(max(new_q_2_answers), 'participants answered "other" for question 2')
 
 q_3_answers = (SHEET.worksheet('count').col_values(7))
 col_3 = Counter(SHEET.worksheet('count').col_values(3))
 most_common_words3 = [col_3 for col_3, word_count in Counter(col_3).most_common(1)]
 
+new_q_3_answers = []
+for item in q_3_answers:
+    if item != '':
+        item = int(item)
+        new_q_3_answers.append(item)
+
 if most_common_words3 == ['a']:
-    print(max(q_3_answers), 'participants answered "air pollution" for question 3')
+    print(max(new_q_3_answers), 'participants answered "air pollution" for question 3')
 elif most_common_words3 == ['b']:
-    print(max(q_3_answers), 'participants answered "water pollution" for question 3')
+    print(max(new_q_3_answers), 'participants answered "water pollution" for question 3')
 elif most_common_words3 == ['c']:
-    print(max(q_3_answers), 'participants answered "soil pollution" for question 3')
+    print(max(new_q_3_answers), 'participants answered "soil pollution" for question 3')
 elif most_common_words3 == ['d']:
-    print(max(q_3_answers), 'participants answered "other" for question 3')
+    print(max(new_q_3_answers), 'participants answered "other" for question 3')
 
 q_4_answers = (SHEET.worksheet('count').col_values(8))
 col_4 = Counter(SHEET.worksheet('count').col_values(4))
 most_common_words4 = [col_4 for col_4, word_count in Counter(col_4).most_common(1)]
 
+new_q_4_answers = []
+for item in q_4_answers:
+    if item != '':
+        item = int(item)
+        new_q_4_answers.append(item)
+
 if most_common_words4 == ['a']:
-    print(max(q_4_answers), 'participants answered "under 18" for question 4')
+    print(max(new_q_4_answers), 'participants answered "under 18" for question 4')
 elif most_common_words4 == ['b']:
-    print(max(q_4_answers), 'participants answered "19-30" for question 4')
+    print(max(new_q_4_answers), 'participants answered "19-30" for question 4')
 elif most_common_words4 == ['c']:
-    print(max(q_4_answers), 'participants answered "31-49" for question 4')
+    print(max(new_q_4_answers), 'participants answered "31-49" for question 4')
 elif most_common_words4 == ['d']:
-    print(max(q_4_answers), 'participants answered "50+" for question 4')
+    print(max(new_q_4_answers), 'participants answered "50+" for question 4')
