@@ -40,7 +40,9 @@ After completing the survey, the answers are sent to the linked google sheet whe
     - The answer must be one of the multiple answers provided
     - The answer must be entered in letters only
     - The survey will return the user's wrong input
+
     <img src="images/wrong-input.png" width="400">
+    
 - Data sent to linked google sheet
 - The quantity of participants is displayed after completion of the survey
 - The most popular answers are displayed at the end

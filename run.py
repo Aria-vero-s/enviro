@@ -34,6 +34,9 @@ The loop will repeatedly request an answer until it is valid.
 # save list of answers
 answers_list = []
 
+# Try except ressource used from here:
+# https://avidpython.com/python-basics/when-to-use-try-except-instead-of-if-else/#:~:text=We%20can%20use%20try%2Dexcept%20for%20exception%20handling%20(handling%20system,exceptions%20or%20system%2Dgenerated%20errors.
+
 for q in q_list[0:5]:
     answer = input(f"{q[1]}:\n - {q[2]} \n - {q[3]} \n - {q[4]} \n - {q[5]} \nplease type your answer here: \n")
     print("")
@@ -49,20 +52,30 @@ for q in q_list[0:5]:
 print('Thank you for completing the survey. \n')
 
 # Add all answers from the answers list to the google worksheet
-
-
 worksheet_to_update = SHEET.worksheet('count')
 # add to the worksheet
 worksheet_to_update.append_row(answers_list)
 
-x = SHEET.worksheet('count').col_values(1)
-print('These were the most popular answers out of the', len(x)-8, 'participants: \n')
+# x = SHEET.worksheet('count').col_values(1)
+# print('These were the most popular answers out of the', len(x)-8, 'participants: \n')
+
+def endMessage():
+    x = SHEET.worksheet('count').col_values(1)
+    try:
+        if len(x) <= 9:
+            raise(KeyError)
+        else:
+            print('These were the most popular answers out of the', len(x)-8, 'participants:')
+    except KeyError:
+        print("You are the first participant! Come back later to see more results.")
+
+endMessage()
 
 # I used the https://stackoverflow.com/questions/3594514/how-to-find-most-common-elements-of-a-list to help me build the next section.
 
 yellow_col_1 = (SHEET.worksheet('count').col_values(5))
 green_col_1 = (SHEET.worksheet('count').col_values(1))
-most_common_words1 = [green_col_1 for green_col_1, word_count in Counter(green_col_1).most_common(1)]
+mostPopular_1 = [green_col_1 for green_col_1, word_count in Counter(green_col_1).most_common(1)]
 
 yellow_col_1_int = []
 for item in yellow_col_1:
@@ -70,13 +83,13 @@ for item in yellow_col_1:
         item = int(item)
         yellow_col_1_int.append(item)
 
-if most_common_words1 == ['a']:
+if mostPopular_1 == ['a']:
     print(max(yellow_col_1_int), 'participants answered "car" for question 1')
-elif most_common_words1 == ['b']:
+elif mostPopular_1 == ['b']:
     print(max(yellow_col_1_int), 'participants answered "bicycle" for question 1')
-elif most_common_words1 == ['c']:
+elif mostPopular_1 == ['c']:
     print(max(yellow_col_1_int), 'participants answered "public transport" for question 1')
-elif most_common_words1 == ['d']:
+elif mostPopular_1 == ['d']:
     print(max(yellow_col_1_int), 'participants answered "other" for question 1')
 
 yellow_col_2 = (SHEET.worksheet('count').col_values(6))
