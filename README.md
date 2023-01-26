@@ -47,11 +47,16 @@ After completing the survey, the answers are sent to the linked google sheet whe
 - The quantity of participants is displayed after completion of the survey
 - The most popular answers are displayed at the end
 
-<img src="images/popular-answers.png" width="600">
+    <img src="images/popular-answers.png" width="600">
+
+- The user is notified if they are the first to participate to the survey
+
+    <img src="images/first-participant.png" width="600">
 
 ## Future features
 
 - Ability for the participant to go back and change their answer
+- View multiple most popular answers
 
 # Data Model
 
@@ -69,6 +74,9 @@ I have manually tested this project by doing the following:
 ### Solved bugs
 
 - The wrong answers (or user typos) were sent to the google sheet and thus interfered with the exactitude of the answer compilation. The problem was the code 'answers_list.append(answer)' in the else statement. The fix was to simply remove that line of code.
+- The endMessage() function was returning both "You are the first participant" message and the results. The issue was fixed by adding sys.exit()
+- the error message ImportError: No module named gspread was fixed by installing gspread again
+- 
 
 ## Bugs remaining
 
@@ -93,3 +101,7 @@ Code Institute for the deployment terminal
 https://techsini.com/multi-mockup/index.php for the README.md multi-device mockup image
 
 https://realpython.com/python-quiz-application/ for the tutorial
+
+I used stackoverflow to understand and fix errors. I used mainly these:
+https://stackoverflow.com/questions/47271232/use-of-try-except-for-input-validation
+https://stackoverflow.com/questions/3594514/how-to-find-most-common-elements-of-a-list

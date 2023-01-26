@@ -60,16 +60,19 @@ worksheet_to_update.append_row(answers_list)
 # x = SHEET.worksheet('count').col_values(1)
 # print('These were the most popular answers out of the', len(x)-8, 'participants: \n')
 
+# I used this to help me: https://stackoverflow.com/questions/47271232/use-of-try-except-for-input-validation
+
 def endMessage():
     x = SHEET.worksheet('count').col_values(1)
     try:
         if len(x) <= 9:
-            raise(KeyError)
+            raise (KeyError)
         else:
             print('These were the most popular answers out of the', len(x)-8, 'participants:')
     except KeyError:
         print("You are the first participant! Come back later to see more results.")
         sys.exit()
+
 
 endMessage()
 
