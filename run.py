@@ -2,6 +2,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from collections import Counter
+import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -68,6 +69,7 @@ def endMessage():
             print('These were the most popular answers out of the', len(x)-8, 'participants:')
     except KeyError:
         print("You are the first participant! Come back later to see more results.")
+        sys.exit()
 
 endMessage()
 
@@ -75,6 +77,7 @@ endMessage()
 
 yellow_col_1 = (SHEET.worksheet('count').col_values(5))
 green_col_1 = (SHEET.worksheet('count').col_values(1))
+del green_col_1[0:8]
 mostPopular_1 = [green_col_1 for green_col_1, word_count in Counter(green_col_1).most_common(1)]
 
 yellow_col_1_int = []
@@ -93,8 +96,9 @@ elif mostPopular_1 == ['d']:
     print(max(yellow_col_1_int), 'participants answered "other" for question 1')
 
 yellow_col_2 = (SHEET.worksheet('count').col_values(6))
-green_col_2 = Counter(SHEET.worksheet('count').col_values(2))
-most_common_words2 = [green_col_2 for green_col_2, word_count in Counter(green_col_2).most_common(1)]
+green_col_2 = (SHEET.worksheet('count').col_values(2))
+del green_col_2[0:8]
+mostPopular_2 = [green_col_2 for green_col_2, word_count in Counter(green_col_2).most_common(1)]
 
 yellow_col_2_int = []
 for item in yellow_col_2:
@@ -102,18 +106,19 @@ for item in yellow_col_2:
         item = int(item)
         yellow_col_2_int.append(item)
 
-if most_common_words2 == ['a']:
+if mostPopular_2 == ['a']:
     print(max(yellow_col_2_int), 'participants answered "internet" for question 2')
-elif most_common_words2 == ['b']:
+elif mostPopular_2 == ['b']:
     print(max(yellow_col_2_int), 'participants answered "radio/tv" for question 2')
-elif most_common_words2 == ['c']:
+elif mostPopular_2 == ['c']:
     print(max(yellow_col_2_int), 'participants answered "newspaper" for question 2')
-elif most_common_words2 == ['d']:
+elif mostPopular_2 == ['d']:
     print(max(yellow_col_2_int), 'participants answered "other" for question 2')
 
 yellow_col_3 = (SHEET.worksheet('count').col_values(7))
-green_col_3 = Counter(SHEET.worksheet('count').col_values(3))
-most_common_words3 = [green_col_3 for green_col_3, word_count in Counter(green_col_3).most_common(1)]
+green_col_3 = (SHEET.worksheet('count').col_values(3))
+del green_col_3[0:8]
+mostPopular_3 = [green_col_3 for green_col_3, word_count in Counter(green_col_3).most_common(1)]
 
 yellow_col_3_int = []
 for item in yellow_col_3:
@@ -121,18 +126,19 @@ for item in yellow_col_3:
         item = int(item)
         yellow_col_3_int.append(item)
 
-if most_common_words3 == ['a']:
+if mostPopular_3 == ['a']:
     print(max(yellow_col_3_int), 'participants answered "air pollution" for question 3')
-elif most_common_words3 == ['b']:
+elif mostPopular_3 == ['b']:
     print(max(yellow_col_3_int), 'participants answered "water pollution" for question 3')
-elif most_common_words3 == ['c']:
+elif mostPopular_3 == ['c']:
     print(max(yellow_col_3_int), 'participants answered "soil pollution" for question 3')
-elif most_common_words3 == ['d']:
+elif mostPopular_3 == ['d']:
     print(max(yellow_col_3_int), 'participants answered "other" for question 3')
 
 yellow_col_4 = (SHEET.worksheet('count').col_values(8))
-green_col_4 = Counter(SHEET.worksheet('count').col_values(4))
-most_common_words4 = [green_col_4 for green_col_4, word_count in Counter(green_col_4).most_common(1)]
+green_col_4 = (SHEET.worksheet('count').col_values(4))
+del green_col_4[0:8]
+mostPopular_4 = [green_col_4 for green_col_4, word_count in Counter(green_col_4).most_common(1)]
 
 yellow_col_4_int = []
 for item in yellow_col_4:
@@ -140,11 +146,11 @@ for item in yellow_col_4:
         item = int(item)
         yellow_col_4_int.append(item)
 
-if most_common_words4 == ['a']:
+if mostPopular_4 == ['a']:
     print(max(yellow_col_4_int), 'participants answered "under 18" for question 4')
-elif most_common_words4 == ['b']:
+elif mostPopular_4 == ['b']:
     print(max(yellow_col_4_int), 'participants answered "19-30" for question 4')
-elif most_common_words4 == ['c']:
+elif mostPopular_4 == ['c']:
     print(max(yellow_col_4_int), 'participants answered "31-49" for question 4')
-elif most_common_words4 == ['d']:
+elif mostPopular_4 == ['d']:
     print(max(yellow_col_4_int), 'participants answered "50+" for question 4')
