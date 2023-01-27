@@ -33,13 +33,11 @@ After completing the survey, the answers are sent to the linked google sheet whe
 
 ## Existing features
 
-- The questions are displayed one at a time in order
-- The multiple answers are grouped under their respective questions
+- The questions are displayed one at a time with multiple choice answers
 - Accepts user inputs
 - Input validation and error-checking
-    - The answer must be one of the multiple answers provided
-    - The answer must be entered in letters only
-    - The survey will return the user's wrong input
+    - The answer must be one of the multiple answers provided (a,b,c,d)
+    - The survey will return the user's input if something else is provided
 
     <img src="images/wrong-input.png" width="400">
     
@@ -73,10 +71,10 @@ I have manually tested this project by doing the following:
 
 ### Solved bugs
 
-- The wrong answers (or user typos) were sent to the google sheet and thus interfered with the exactitude of the answer compilation. The problem was the code 'answers_list.append(answer)' in the else statement. The fix was to simply remove that line of code.
-- The endMessage() function was returning both "You are the first participant" message and the results. The issue was fixed by adding sys.exit()
-- the error message ImportError: No module named gspread was fixed by installing gspread again
-- 
+- The user's wrong answers were being appended to the google sheet. I had copied my code from the if statement. To fix this problem, I simply removed `answers_list.append(answer)` from the else statement.
+- The `endMessage()` function was returning both "You are the first participant! Come back later to see more results" and the results. The issue was fixed by adding `sys.exit()`
+- The `error message ImportError: No module named gspread` was fixed by installing gspread again
+- The `error TypeError: 'list' object cannot be interpreted as an integer` was fixed by creating a for loop to parse each list item into a new list as integers.
 
 ## Bugs remaining
 
